@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "beyond-netherite:obsidian_alloy",
+  "base": "minecraft:netherite_chestplate",
+  "result": {
+    "id": "beyond-netherite:obsidian_chestplate"
+  },
+  "template": "beyond-netherite:obsidian_smithing_template"
+}

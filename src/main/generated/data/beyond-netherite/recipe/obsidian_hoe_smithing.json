@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "beyond-netherite:obsidian_alloy",
+  "base": "minecraft:netherite_hoe",
+  "result": {
+    "id": "beyond-netherite:obsidian_hoe"
+  },
+  "template": "beyond-netherite:obsidian_smithing_template"
+}

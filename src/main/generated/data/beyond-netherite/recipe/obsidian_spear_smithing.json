@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "beyond-netherite:obsidian_alloy",
+  "base": "minecraft:netherite_spear",
+  "result": {
+    "id": "beyond-netherite:obsidian_spear"
+  },
+  "template": "beyond-netherite:obsidian_smithing_template"
+}

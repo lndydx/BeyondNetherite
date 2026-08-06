@@ -8,7 +8,10 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.data.recipes.SmithingTransformRecipeBuilder;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 
 import com.lndydx.beyondnetherite.item.ModItems;
 
@@ -45,6 +48,29 @@ public class BeyondNetheriteRecipeProvider extends FabricRecipeProvider {
                         .define('F', Items.FEATHER)
                         .unlockedBy(getHasName(ModItems.OBSIDIAN_SHARD), has(ModItems.OBSIDIAN_SHARD))
                         .save(exporter);
+
+                obsidianSmithing(this, Items.NETHERITE_SWORD, RecipeCategory.COMBAT, ModItems.OBSIDIAN_SWORD);
+                obsidianSmithing(this, Items.NETHERITE_AXE, RecipeCategory.TOOLS, ModItems.OBSIDIAN_AXE);
+                obsidianSmithing(this, Items.NETHERITE_PICKAXE, RecipeCategory.TOOLS, ModItems.OBSIDIAN_PICKAXE);
+                obsidianSmithing(this, Items.NETHERITE_SHOVEL, RecipeCategory.TOOLS, ModItems.OBSIDIAN_SHOVEL);
+                obsidianSmithing(this, Items.NETHERITE_HOE, RecipeCategory.TOOLS, ModItems.OBSIDIAN_HOE);
+                obsidianSmithing(this, Items.NETHERITE_SPEAR, RecipeCategory.COMBAT, ModItems.OBSIDIAN_SPEAR);
+                obsidianSmithing(this, Items.NETHERITE_HELMET, RecipeCategory.COMBAT, ModItems.OBSIDIAN_HELMET);
+                obsidianSmithing(this, Items.NETHERITE_CHESTPLATE, RecipeCategory.COMBAT, ModItems.OBSIDIAN_CHESTPLATE);
+                obsidianSmithing(this, Items.NETHERITE_LEGGINGS, RecipeCategory.COMBAT, ModItems.OBSIDIAN_LEGGINGS);
+                obsidianSmithing(this, Items.NETHERITE_BOOTS, RecipeCategory.COMBAT, ModItems.OBSIDIAN_BOOTS);
+            }
+
+            private void obsidianSmithing(RecipeProvider ctx, Item base, RecipeCategory category, Item result) {
+                SmithingTransformRecipeBuilder.smithing(
+                                Ingredient.of(ModItems.OBSIDIAN_SMITHING_TEMPLATE),
+                                Ingredient.of(base),
+                                Ingredient.of(ModItems.OBSIDIAN_ALLOY),
+                                category,
+                                result
+                        )
+                        .unlocks(getHasName(ModItems.OBSIDIAN_ALLOY), has(ModItems.OBSIDIAN_ALLOY))
+                        .save(exporter, getItemName(result) + "_smithing");
             }
         };
     }
