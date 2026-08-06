@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "F": "minecraft:feather",
+    "O": "beyond-netherite:obsidian_shard",
+    "S": "minecraft:stick"
+  },
+  "pattern": [
+    "O",
+    "S",
+    "F"
+  ],
+  "result": {
+    "count": 2,
+    "id": "beyond-netherite:obsidian_arrow"
+  }
+}

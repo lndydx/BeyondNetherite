@@ -1,0 +1,41 @@
+{
+	"schemaVersion": 1,
+	"id": "beyond-netherite",
+	"version": "${version}",
+	"name": "Beyond Netherite",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/beyond-netherite/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.lndydx.beyondnetherite.BeyondNetherite"
+		],
+		"client": [
+			"com.lndydx.beyondnetherite.client.BeyondNetheriteClient"
+		],
+		"fabric-datagen": [
+			"com.lndydx.beyondnetherite.client.BeyondNetheriteDataGenerator"
+		]
+	},
+	"mixins": [
+		"beyond-netherite.mixins.json",
+		{
+			"config": "beyond-netherite.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.19.3",
+		"minecraft": "~26.2",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}
