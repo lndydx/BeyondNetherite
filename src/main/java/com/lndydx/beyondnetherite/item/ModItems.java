@@ -47,7 +47,7 @@ public class ModItems {
     }
 
     private static Item.Properties toolProperties(float attackDamage, float attackSpeed, net.minecraft.tags.TagKey<net.minecraft.world.level.block.Block> mineableTag, boolean hasHaste, ResourceKey<Item> key) {
-        Item.Properties props = new Item.Properties().setId(key).stacksTo(1);
+        Item.Properties props = new Item.Properties().setId(key).stacksTo(1).fireResistant();
         props = ObsidianToolMaterial.INSTANCE.applyToolProperties(props, mineableTag, attackDamage, attackSpeed, 0.0F);
 
         if (hasHaste) {
@@ -63,32 +63,30 @@ public class ModItems {
     }
 
     private static Item.Properties swordProperties(float attackDamage, float attackSpeed, ResourceKey<Item> key) {
-        Item.Properties props = new Item.Properties().setId(key).stacksTo(1);
+        Item.Properties props = new Item.Properties().setId(key).stacksTo(1).fireResistant();
         props = ObsidianToolMaterial.INSTANCE.applySwordProperties(props, attackDamage, attackSpeed);
         return props;
     }
 
     private static Item.Properties hoeProperties(ResourceKey<Item> key) {
-        return new Item.Properties().setId(key).stacksTo(1);
-    }
-
-    private static Item.Properties spearProperties(ResourceKey<Item> key) {
-        Item.Properties props = new Item.Properties().setId(key).stacksTo(1);
-
-        props = props.spear(
-                ObsidianToolMaterial.INSTANCE, 1.0F, 1.35F, 0.0F, 10.0F, 0.2F, 10.0F, 0.2F, 10.0F, 0.0F
-        );
-
+        Item.Properties props = new Item.Properties().setId(key).stacksTo(1).fireResistant();
         return props;
     }
 
+    private static Item.Properties spearProperties(ResourceKey<Item> key) {
+        Item.Properties props = new Item.Properties().setId(key).stacksTo(1).fireResistant();
+        props = props.spear(
+                ObsidianToolMaterial.INSTANCE, 1.0F, 1.35F, 0.0F, 10.0F, 0.2F, 10.0F, 0.2F, 10.0F, 0.0F
+        );
+        return props;
+    }
 
     private static Item.Properties basicProperties(ResourceKey<Item> key) {
-        return new Item.Properties().setId(key);
+        return new Item.Properties().setId(key).fireResistant();
     }
 
     private static Item.Properties armorProperties(ResourceKey<Item> key, int durability) {
-        return new Item.Properties().setId(key).stacksTo(1).durability(durability);
+        return new Item.Properties().setId(key).stacksTo(1).durability(durability).fireResistant();
     }
 
     public static void initialize() {
@@ -101,13 +99,13 @@ public class ModItems {
         OBSIDIAN_PICKAXE = register(ModItemIds.OBSIDIAN_PICKAXE, new Item(toolProperties(1.0F, -2.8F, BlockTags.MINEABLE_WITH_PICKAXE, true, ModItemIds.OBSIDIAN_PICKAXE)));
         OBSIDIAN_SHOVEL = register(ModItemIds.OBSIDIAN_SHOVEL, new Item(toolProperties(1.0F, -3.0F, BlockTags.MINEABLE_WITH_SHOVEL, true, ModItemIds.OBSIDIAN_SHOVEL)));
         OBSIDIAN_HOE = register(ModItemIds.OBSIDIAN_HOE, new HoeItem(ObsidianToolMaterial.INSTANCE, -5.0F, 0.0F, hoeProperties(ModItemIds.OBSIDIAN_HOE)));
-        OBSIDIAN_SPEAR = register(ModItemIds.OBSIDIAN_SPEAR, new Item(new Item.Properties().setId(ModItemIds.OBSIDIAN_SPEAR).stacksTo(1).spear(ObsidianToolMaterial.INSTANCE, 1.25F, 1.35F, 0.75F, 3.25F, 14.0F, 3.0F, 5.1F, 10.0F, 4.6F)));
+        OBSIDIAN_SPEAR = register(ModItemIds.OBSIDIAN_SPEAR, new Item(new Item.Properties().setId(ModItemIds.OBSIDIAN_SPEAR).stacksTo(1).spear(ObsidianToolMaterial.INSTANCE, 1.25F, 1.35F, 0.75F, 3.25F, 14.0F, 3.0F, 5.1F, 10.0F, 4.6F).fireResistant()));
 
         OBSIDIAN_HELMET = register(ModItemIds.OBSIDIAN_HELMET, new Item(armorProperties(ModItemIds.OBSIDIAN_HELMET, 509)));
         OBSIDIAN_CHESTPLATE = register(ModItemIds.OBSIDIAN_CHESTPLATE, new Item(armorProperties(ModItemIds.OBSIDIAN_CHESTPLATE, 740)));
         OBSIDIAN_LEGGINGS = register(ModItemIds.OBSIDIAN_LEGGINGS, new Item(armorProperties(ModItemIds.OBSIDIAN_LEGGINGS, 694)));
         OBSIDIAN_BOOTS = register(ModItemIds.OBSIDIAN_BOOTS, new Item(armorProperties(ModItemIds.OBSIDIAN_BOOTS, 601)));
-        OBSIDIAN_ARROW = register(ModItemIds.OBSIDIAN_ARROW, new Item(basicProperties(ModItemIds.OBSIDIAN_ARROW)));
+        OBSIDIAN_ARROW = register(ModItemIds.OBSIDIAN_ARROW, new ObsidianArrowItem(new Item.Properties().setId(ModItemIds.OBSIDIAN_ARROW).fireResistant()));
 
         WINGED_NETHERITE_CHESTPLATE = register(ModItemIds.WINGED_NETHERITE_CHESTPLATE, new Item(armorProperties(ModItemIds.WINGED_NETHERITE_CHESTPLATE, 544)));
         WINGED_OBSIDIAN_CHESTPLATE = register(ModItemIds.WINGED_OBSIDIAN_CHESTPLATE, new Item(armorProperties(ModItemIds.WINGED_OBSIDIAN_CHESTPLATE, 648)));

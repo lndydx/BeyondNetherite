@@ -1,9 +1,9 @@
 package com.lndydx.beyondnetherite;
 
 import net.fabricmc.api.ModInitializer;
-
 import net.minecraft.resources.Identifier;
 
+import com.lndydx.beyondnetherite.entity.ModEntities;
 import com.lndydx.beyondnetherite.item.ModItems;
 
 import org.slf4j.Logger;
@@ -11,13 +11,12 @@ import org.slf4j.LoggerFactory;
 
 public class BeyondNetherite implements ModInitializer {
 	public static final String MOD_ID = "beyond-netherite";
-
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	@Override
 	public void onInitialize() {
 		ModItems.initialize();
-
+		ModEntities.initialize();
 		LOGGER.info("Beyond Netherite loaded.");
 	}
 
