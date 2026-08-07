@@ -11,12 +11,10 @@ import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
-import net.minecraft.world.item.HoeItem;
-
-import java.util.Optional;
-import net.minecraft.world.item.component.KineticWeapon;
+import net.minecraft.world.item.equipment.ArmorType;
 
 import com.lndydx.beyondnetherite.BeyondNetherite;
 
@@ -69,8 +67,7 @@ public class ModItems {
     }
 
     private static Item.Properties hoeProperties(ResourceKey<Item> key) {
-        Item.Properties props = new Item.Properties().setId(key).stacksTo(1).fireResistant();
-        return props;
+        return new Item.Properties().setId(key).stacksTo(1).fireResistant();
     }
 
     private static Item.Properties spearProperties(ResourceKey<Item> key) {
@@ -85,8 +82,14 @@ public class ModItems {
         return new Item.Properties().setId(key).fireResistant();
     }
 
-    private static Item.Properties armorProperties(ResourceKey<Item> key, int durability) {
-        return new Item.Properties().setId(key).stacksTo(1).durability(durability).fireResistant();
+    private static Item.Properties armorProperties(ResourceKey<Item> key, int durability, ArmorType type) {
+        return new Item.Properties()
+                .setId(key)
+                .stacksTo(1)
+                .humanoidArmor(ModArmorMaterials.OBSIDIAN, type)
+                .durability(durability)
+                .fireResistant()
+                .enchantable(15);
     }
 
     public static void initialize() {
@@ -101,14 +104,13 @@ public class ModItems {
         OBSIDIAN_HOE = register(ModItemIds.OBSIDIAN_HOE, new HoeItem(ObsidianToolMaterial.INSTANCE, -5.0F, 0.0F, hoeProperties(ModItemIds.OBSIDIAN_HOE)));
         OBSIDIAN_SPEAR = register(ModItemIds.OBSIDIAN_SPEAR, new Item(new Item.Properties().setId(ModItemIds.OBSIDIAN_SPEAR).stacksTo(1).spear(ObsidianToolMaterial.INSTANCE, 1.25F, 1.35F, 0.75F, 3.25F, 14.0F, 3.0F, 5.1F, 10.0F, 4.6F).fireResistant()));
 
-        OBSIDIAN_HELMET = register(ModItemIds.OBSIDIAN_HELMET, new Item(armorProperties(ModItemIds.OBSIDIAN_HELMET, 509)));
-        OBSIDIAN_CHESTPLATE = register(ModItemIds.OBSIDIAN_CHESTPLATE, new Item(armorProperties(ModItemIds.OBSIDIAN_CHESTPLATE, 740)));
-        OBSIDIAN_LEGGINGS = register(ModItemIds.OBSIDIAN_LEGGINGS, new Item(armorProperties(ModItemIds.OBSIDIAN_LEGGINGS, 694)));
-        OBSIDIAN_BOOTS = register(ModItemIds.OBSIDIAN_BOOTS, new Item(armorProperties(ModItemIds.OBSIDIAN_BOOTS, 601)));
+        OBSIDIAN_HELMET = register(ModItemIds.OBSIDIAN_HELMET, new Item(armorProperties(ModItemIds.OBSIDIAN_HELMET, 509, ArmorType.HELMET)));
+        OBSIDIAN_CHESTPLATE = register(ModItemIds.OBSIDIAN_CHESTPLATE, new Item(armorProperties(ModItemIds.OBSIDIAN_CHESTPLATE, 740, ArmorType.CHESTPLATE)));
+        OBSIDIAN_LEGGINGS = register(ModItemIds.OBSIDIAN_LEGGINGS, new Item(armorProperties(ModItemIds.OBSIDIAN_LEGGINGS, 694, ArmorType.LEGGINGS)));
+        OBSIDIAN_BOOTS = register(ModItemIds.OBSIDIAN_BOOTS, new Item(armorProperties(ModItemIds.OBSIDIAN_BOOTS, 601, ArmorType.BOOTS)));
         OBSIDIAN_ARROW = register(ModItemIds.OBSIDIAN_ARROW, new ObsidianArrowItem(new Item.Properties().setId(ModItemIds.OBSIDIAN_ARROW).fireResistant()));
-
-        WINGED_NETHERITE_CHESTPLATE = register(ModItemIds.WINGED_NETHERITE_CHESTPLATE, new Item(armorProperties(ModItemIds.WINGED_NETHERITE_CHESTPLATE, 544)));
-        WINGED_OBSIDIAN_CHESTPLATE = register(ModItemIds.WINGED_OBSIDIAN_CHESTPLATE, new Item(armorProperties(ModItemIds.WINGED_OBSIDIAN_CHESTPLATE, 648)));
+        WINGED_NETHERITE_CHESTPLATE = register(ModItemIds.WINGED_NETHERITE_CHESTPLATE, new Item(armorProperties(ModItemIds.WINGED_NETHERITE_CHESTPLATE, 544, ArmorType.CHESTPLATE)));
+        WINGED_OBSIDIAN_CHESTPLATE = register(ModItemIds.WINGED_OBSIDIAN_CHESTPLATE, new Item(armorProperties(ModItemIds.WINGED_OBSIDIAN_CHESTPLATE, 648, ArmorType.CHESTPLATE)));
 
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.INGREDIENTS)
                 .register((entries) -> {
