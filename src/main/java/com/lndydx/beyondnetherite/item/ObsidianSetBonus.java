@@ -28,7 +28,12 @@ public class ObsidianSetBonus {
     }
 
     public static void restoreMotion() {
-        SAVED_MOTION.forEach((entity, motion) -> entity.setDeltaMovement(motion));
+        SAVED_MOTION.forEach((entity, saved) -> {
+            Vec3 current = entity.getDeltaMovement();
+            Vec3 knockback = current.subtract(saved);
+            Vec3 reduced = saved.add(knockback.scale(0.2D));
+            entity.setDeltaMovement(reduced);
+        });
         SAVED_MOTION.clear();
     }
 }
