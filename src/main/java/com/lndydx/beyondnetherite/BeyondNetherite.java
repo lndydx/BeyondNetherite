@@ -3,7 +3,6 @@ package com.lndydx.beyondnetherite;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.resources.Identifier;
-
 import com.lndydx.beyondnetherite.entity.ModEntities;
 import com.lndydx.beyondnetherite.item.ModArmorMaterials;
 import com.lndydx.beyondnetherite.item.ModItems;

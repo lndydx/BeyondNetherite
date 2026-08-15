@@ -121,8 +121,8 @@ public class ModItems {
         OBSIDIAN_LEGGINGS = register(ModItemIds.OBSIDIAN_LEGGINGS, new Item(armorProperties(ModItemIds.OBSIDIAN_LEGGINGS, 694, ArmorType.LEGGINGS)));
         OBSIDIAN_BOOTS = register(ModItemIds.OBSIDIAN_BOOTS, new Item(armorProperties(ModItemIds.OBSIDIAN_BOOTS, 601, ArmorType.BOOTS)));
         OBSIDIAN_ARROW = register(ModItemIds.OBSIDIAN_ARROW, new ObsidianArrowItem(new Item.Properties().setId(ModItemIds.OBSIDIAN_ARROW).fireResistant()));
-        WINGED_NETHERITE_CHESTPLATE = register(ModItemIds.WINGED_NETHERITE_CHESTPLATE, new Item(wingedProperties(ModItemIds.WINGED_NETHERITE_CHESTPLATE, 544)));
-        WINGED_OBSIDIAN_CHESTPLATE = register(ModItemIds.WINGED_OBSIDIAN_CHESTPLATE, new Item(wingedProperties(ModItemIds.WINGED_OBSIDIAN_CHESTPLATE, 648)));
+        WINGED_NETHERITE_CHESTPLATE = register(ModItemIds.WINGED_NETHERITE_CHESTPLATE, new Item(wingedProperties(ModItemIds.WINGED_NETHERITE_CHESTPLATE, 548)));
+        WINGED_OBSIDIAN_CHESTPLATE = register(ModItemIds.WINGED_OBSIDIAN_CHESTPLATE, new Item(wingedProperties(ModItemIds.WINGED_OBSIDIAN_CHESTPLATE, 652)));
 
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.INGREDIENTS)
                 .register((entries) -> {
