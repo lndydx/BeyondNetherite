@@ -9,6 +9,7 @@ import com.lndydx.beyondnetherite.item.ModArmorMaterials;
 import com.lndydx.beyondnetherite.item.ModItems;
 import com.lndydx.beyondnetherite.item.ObsidianSetBonus;
 import com.lndydx.beyondnetherite.loot.ModLoot;
+import com.lndydx.beyondnetherite.item.ModRecipes;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,6 +24,7 @@ public class BeyondNetherite implements ModInitializer {
 		ModItems.initialize();
 		ModEntities.initialize();
 		ModLoot.initialize();
+		ModRecipes.initialize();
 
 		ServerTickEvents.END_SERVER_TICK.register(server -> ObsidianSetBonus.restoreMotion());
 

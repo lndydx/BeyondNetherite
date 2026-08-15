@@ -15,6 +15,7 @@ import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.equipment.ArmorType;
+import net.minecraft.util.Unit;
 
 import com.lndydx.beyondnetherite.BeyondNetherite;
 
@@ -92,6 +93,17 @@ public class ModItems {
                 .enchantable(15);
     }
 
+    private static Item.Properties wingedProperties(ResourceKey<Item> key, int durability) {
+        return new Item.Properties()
+                .setId(key)
+                .stacksTo(1)
+                .humanoidArmor(ModArmorMaterials.OBSIDIAN, ArmorType.CHESTPLATE)
+                .component(DataComponents.GLIDER, Unit.INSTANCE)
+                .durability(durability)
+                .fireResistant()
+                .enchantable(15);
+    }
+
     public static void initialize() {
         OBSIDIAN_SHARD = register(ModItemIds.OBSIDIAN_SHARD, new Item(basicProperties(ModItemIds.OBSIDIAN_SHARD)));
         OBSIDIAN_ALLOY = register(ModItemIds.OBSIDIAN_ALLOY, new Item(basicProperties(ModItemIds.OBSIDIAN_ALLOY)));
@@ -109,8 +121,8 @@ public class ModItems {
         OBSIDIAN_LEGGINGS = register(ModItemIds.OBSIDIAN_LEGGINGS, new Item(armorProperties(ModItemIds.OBSIDIAN_LEGGINGS, 694, ArmorType.LEGGINGS)));
         OBSIDIAN_BOOTS = register(ModItemIds.OBSIDIAN_BOOTS, new Item(armorProperties(ModItemIds.OBSIDIAN_BOOTS, 601, ArmorType.BOOTS)));
         OBSIDIAN_ARROW = register(ModItemIds.OBSIDIAN_ARROW, new ObsidianArrowItem(new Item.Properties().setId(ModItemIds.OBSIDIAN_ARROW).fireResistant()));
-        WINGED_NETHERITE_CHESTPLATE = register(ModItemIds.WINGED_NETHERITE_CHESTPLATE, new Item(armorProperties(ModItemIds.WINGED_NETHERITE_CHESTPLATE, 544, ArmorType.CHESTPLATE)));
-        WINGED_OBSIDIAN_CHESTPLATE = register(ModItemIds.WINGED_OBSIDIAN_CHESTPLATE, new Item(armorProperties(ModItemIds.WINGED_OBSIDIAN_CHESTPLATE, 648, ArmorType.CHESTPLATE)));
+        WINGED_NETHERITE_CHESTPLATE = register(ModItemIds.WINGED_NETHERITE_CHESTPLATE, new Item(wingedProperties(ModItemIds.WINGED_NETHERITE_CHESTPLATE, 544)));
+        WINGED_OBSIDIAN_CHESTPLATE = register(ModItemIds.WINGED_OBSIDIAN_CHESTPLATE, new Item(wingedProperties(ModItemIds.WINGED_OBSIDIAN_CHESTPLATE, 648)));
 
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.INGREDIENTS)
                 .register((entries) -> {
