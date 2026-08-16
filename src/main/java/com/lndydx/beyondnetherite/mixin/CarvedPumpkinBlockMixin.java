@@ -1,35 +1,33 @@
-package com.lndydx.beyondnetherite.block;
+package com.lndydx.beyondnetherite.mixin;
+
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EntitySpawnReason;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.CarvedPumpkinBlock;
 
+import com.lndydx.beyondnetherite.BeyondNetherite;
+import com.lndydx.beyondnetherite.block.ModBlocks;
 import com.lndydx.beyondnetherite.entity.ModEntities;
 
-import org.jetbrains.annotations.Nullable;
-
-public class DenseObsidianBlock extends Block {
-    public DenseObsidianBlock(Properties properties) {
-        super(properties);
-    }
-
-    @Override
-    public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
-        super.setPlacedBy(level, pos, state, placer, stack);
-        if (!level.isClientSide()) {
-            trySpawnGolem(level, pos);
+@Mixin(CarvedPumpkinBlock.class)
+public abstract class CarvedPumpkinBlockMixin {
+    @Inject(method = "trySpawnGolem", at = @At("TAIL"))
+    private void beyondnetherite$tryObsidianGolem(Level level, BlockPos pos, CallbackInfo ci) {
+        if (level.isClientSide()) {
+            return;
         }
-    }
 
-    private void trySpawnGolem(Level level, BlockPos headPos) {
-        BlockPos center = headPos.below();
+        BeyondNetherite.LOGGER.info("[BN] Carved pumpkin placed at {}", pos);
+
+        BlockPos center = pos.below();
         BlockPos leg = center.below();
 
         for (Direction dir : new Direction[]{Direction.NORTH, Direction.EAST}) {
@@ -37,12 +35,12 @@ public class DenseObsidianBlock extends Block {
             BlockPos right = center.relative(dir.getOpposite());
 
             if (isDense(level, center) && isDense(level, leg) && isDense(level, left) && isDense(level, right)) {
-                level.setBlock(headPos, Blocks.AIR.defaultBlockState(), 3);
+                BeyondNetherite.LOGGER.info("[BN] Obsidian Golem pattern detected!");
+                level.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
                 level.setBlock(center, Blocks.AIR.defaultBlockState(), 3);
                 level.setBlock(leg, Blocks.AIR.defaultBlockState(), 3);
                 level.setBlock(left, Blocks.AIR.defaultBlockState(), 3);
                 level.setBlock(right, Blocks.AIR.defaultBlockState(), 3);
-
                 ModEntities.OBSIDIAN_GOLEM.spawn((ServerLevel) level, leg, EntitySpawnReason.STRUCTURE);
                 return;
             }

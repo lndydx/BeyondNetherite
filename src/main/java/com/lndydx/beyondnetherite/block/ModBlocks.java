@@ -28,10 +28,14 @@ public class ModBlocks {
     }
 
     public static void initialize() {
+        ResourceKey<Block> denseKey = blockKey("dense_obsidian");
+
         DENSE_OBSIDIAN = Registry.register(
                 BuiltInRegistries.BLOCK,
-                blockKey("dense_obsidian"),
-                new DenseObsidianBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OBSIDIAN).strength(60.0F, 2400.0F))
+                denseKey,
+                new DenseObsidianBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OBSIDIAN)
+                        .setId(denseKey)
+                        .strength(50.0F, 2400.0F))
         );
 
         DENSE_OBSIDIAN_ITEM = Registry.register(
