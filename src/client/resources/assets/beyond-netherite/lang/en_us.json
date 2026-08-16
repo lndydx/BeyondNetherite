@@ -14,5 +14,10 @@
   "item.beyond-netherite.obsidian_boots": "Obsidian Boots",
   "item.beyond-netherite.obsidian_arrow": "Obsidian Arrow",
   "item.beyond-netherite.winged_netherite_chestplate": "Winged Netherite Chestplate",
-  "item.beyond-netherite.winged_obsidian_chestplate": "Winged Obsidian Chestplate"
+  "item.beyond-netherite.winged_obsidian_chestplate": "Winged Obsidian Chestplate",
+  "item.beyond-netherite.obsidian_golem_spawn_egg": "Obsidian Golem Spawn Egg",
+  "block.beyond-netherite.dense_obsidian": "Dense Obsidian",
+  "item.beyond-netherite.dense_obsidian": "Dense Obsidian",
+  "entity.beyond-netherite.obsidian_golem": "Obsidian Golem",
+  "entity.beyond-netherite.obsidian_arrow": "Obsidian Arrow"
 }

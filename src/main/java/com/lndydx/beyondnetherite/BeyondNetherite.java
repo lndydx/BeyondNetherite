@@ -3,12 +3,14 @@ package com.lndydx.beyondnetherite;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.resources.Identifier;
+
+import com.lndydx.beyondnetherite.block.ModBlocks;
 import com.lndydx.beyondnetherite.entity.ModEntities;
 import com.lndydx.beyondnetherite.item.ModArmorMaterials;
 import com.lndydx.beyondnetherite.item.ModItems;
+import com.lndydx.beyondnetherite.item.ModRecipes;
 import com.lndydx.beyondnetherite.item.ObsidianSetBonus;
 import com.lndydx.beyondnetherite.loot.ModLoot;
-import com.lndydx.beyondnetherite.item.ModRecipes;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,6 +26,7 @@ public class BeyondNetherite implements ModInitializer {
 		ModEntities.initialize();
 		ModLoot.initialize();
 		ModRecipes.initialize();
+		ModBlocks.initialize();
 
 		ServerTickEvents.END_SERVER_TICK.register(server -> ObsidianSetBonus.restoreMotion());
 

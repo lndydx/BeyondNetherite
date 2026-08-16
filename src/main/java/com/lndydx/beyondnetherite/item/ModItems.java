@@ -36,6 +36,7 @@ public class ModItems {
     public static Item OBSIDIAN_ARROW;
     public static Item WINGED_NETHERITE_CHESTPLATE;
     public static Item WINGED_OBSIDIAN_CHESTPLATE;
+    public static Item OBSIDIAN_GOLEM_SPAWN_EGG;
 
     private static final Identifier BASE_ATTACK_DAMAGE_ID = Identifier.withDefaultNamespace("base_attack_damage");
     private static final Identifier BASE_ATTACK_SPEED_ID = Identifier.withDefaultNamespace("base_attack_speed");
@@ -121,8 +122,9 @@ public class ModItems {
         OBSIDIAN_LEGGINGS = register(ModItemIds.OBSIDIAN_LEGGINGS, new Item(armorProperties(ModItemIds.OBSIDIAN_LEGGINGS, 694, ArmorType.LEGGINGS)));
         OBSIDIAN_BOOTS = register(ModItemIds.OBSIDIAN_BOOTS, new Item(armorProperties(ModItemIds.OBSIDIAN_BOOTS, 601, ArmorType.BOOTS)));
         OBSIDIAN_ARROW = register(ModItemIds.OBSIDIAN_ARROW, new ObsidianArrowItem(new Item.Properties().setId(ModItemIds.OBSIDIAN_ARROW).fireResistant()));
-        WINGED_NETHERITE_CHESTPLATE = register(ModItemIds.WINGED_NETHERITE_CHESTPLATE, new Item(wingedProperties(ModItemIds.WINGED_NETHERITE_CHESTPLATE, 548)));
-        WINGED_OBSIDIAN_CHESTPLATE = register(ModItemIds.WINGED_OBSIDIAN_CHESTPLATE, new Item(wingedProperties(ModItemIds.WINGED_OBSIDIAN_CHESTPLATE, 652)));
+        WINGED_NETHERITE_CHESTPLATE = register(ModItemIds.WINGED_NETHERITE_CHESTPLATE, new Item(wingedProperties(ModItemIds.WINGED_NETHERITE_CHESTPLATE, 544)));
+        WINGED_OBSIDIAN_CHESTPLATE = register(ModItemIds.WINGED_OBSIDIAN_CHESTPLATE, new Item(wingedProperties(ModItemIds.WINGED_OBSIDIAN_CHESTPLATE, 648)));
+        OBSIDIAN_GOLEM_SPAWN_EGG = register(ModItemIds.OBSIDIAN_GOLEM_SPAWN_EGG, new ObsidianGolemSpawnEggItem(new Item.Properties().setId(ModItemIds.OBSIDIAN_GOLEM_SPAWN_EGG)));
 
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.INGREDIENTS)
                 .register((entries) -> {
@@ -150,6 +152,11 @@ public class ModItems {
                     entries.accept(OBSIDIAN_BOOTS);
                     entries.accept(WINGED_NETHERITE_CHESTPLATE);
                     entries.accept(WINGED_OBSIDIAN_CHESTPLATE);
+                });
+
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.SPAWN_EGGS)
+                .register((entries) -> {
+                    entries.accept(OBSIDIAN_GOLEM_SPAWN_EGG);
                 });
     }
 }

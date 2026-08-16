@@ -12,7 +12,8 @@ import net.minecraft.data.recipes.SmithingTransformRecipeBuilder;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
-
+import net.minecraft.world.level.block.Blocks;
+import com.lndydx.beyondnetherite.block.ModBlocks;
 import com.lndydx.beyondnetherite.item.ModItems;
 
 public class BeyondNetheriteRecipeProvider extends FabricRecipeProvider {
@@ -47,6 +48,14 @@ public class BeyondNetheriteRecipeProvider extends FabricRecipeProvider {
                         .define('S', Items.STICK)
                         .define('F', Items.FEATHER)
                         .unlockedBy(getHasName(ModItems.OBSIDIAN_SHARD), has(ModItems.OBSIDIAN_SHARD))
+                        .save(exporter);
+
+                shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.DENSE_OBSIDIAN_ITEM, 1)
+                        .pattern("OOO")
+                        .pattern("OOO")
+                        .pattern("OOO")
+                        .define('O', Blocks.OBSIDIAN)
+                        .unlockedBy(getHasName(Blocks.OBSIDIAN), has(Blocks.OBSIDIAN))
                         .save(exporter);
 
                 obsidianSmithing(this, Items.NETHERITE_SWORD, RecipeCategory.COMBAT, ModItems.OBSIDIAN_SWORD);
