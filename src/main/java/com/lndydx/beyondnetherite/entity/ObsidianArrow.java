@@ -7,14 +7,14 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.projectile.arrow.Arrow;
+import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 
 import com.lndydx.beyondnetherite.item.ModItems;
 
-public class ObsidianArrow extends Arrow {
+public class ObsidianArrow extends AbstractArrow {
     private static final Identifier TOUGHNESS_IGNORE_ID = Identifier.fromNamespaceAndPath("beyond-netherite", "obsidian_arrow_toughness_ignore");
 
     public ObsidianArrow(EntityType<? extends ObsidianArrow> type, Level level) {
@@ -23,7 +23,7 @@ public class ObsidianArrow extends Arrow {
     }
 
     public ObsidianArrow(Level level, LivingEntity shooter, ItemStack pickupStack, ItemStack firedFromWeapon) {
-        super(level, shooter, pickupStack, firedFromWeapon);
+        super(ModEntities.OBSIDIAN_ARROW, shooter, level, pickupStack, firedFromWeapon);
         setBaseDamage(4.0D);
     }
 

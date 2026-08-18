@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 
 import com.lndydx.beyondnetherite.client.datagen.BeyondNetheriteBlockTagProvider;
 import com.lndydx.beyondnetherite.client.datagen.BeyondNetheriteRecipeProvider;
+import com.lndydx.beyondnetherite.client.datagen.BeyondNetheriteItemTagProvider;
 
 public class BeyondNetheriteDataGenerator implements DataGeneratorEntrypoint {
 	@Override
@@ -12,5 +13,6 @@ public class BeyondNetheriteDataGenerator implements DataGeneratorEntrypoint {
 		FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
 		pack.addProvider(BeyondNetheriteRecipeProvider::new);
 		pack.addProvider(BeyondNetheriteBlockTagProvider::new);
+		pack.addProvider(BeyondNetheriteItemTagProvider::new);
 	}
 }
