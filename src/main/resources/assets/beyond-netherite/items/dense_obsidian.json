@@ -1,6 +1,1 @@
-{
-  "model": {
-    "type": "minecraft:model",
-    "model": "beyond-netherite:block/dense_obsidian"
-  }
-}
+{"model":{"type":"minecraft:model","model":"beyond-netherite:block/dense_obsidian"}}

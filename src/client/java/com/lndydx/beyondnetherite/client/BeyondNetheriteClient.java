@@ -1,5 +1,6 @@
 package com.lndydx.beyondnetherite.client;
 
+import com.lndydx.beyondnetherite.client.renderer.ObsidianArrowRendererer;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -7,14 +8,14 @@ import net.minecraft.client.renderer.entity.IronGolemRenderer;
 import net.minecraft.resources.Identifier;
 
 import com.lndydx.beyondnetherite.BeyondNetherite;
-import com.lndydx.beyondnetherite.client.renderer.ObsidianArrowRenderer;
+import com.lndydx.beyondnetherite.client.renderer.ObsidianArrowRendererer;
 import com.lndydx.beyondnetherite.entity.ModEntities;
 import com.lndydx.beyondnetherite.entity.ObsidianGolem;
 
 public class BeyondNetheriteClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
-		EntityRendererRegistry.register(ModEntities.OBSIDIAN_ARROW, ObsidianArrowRenderer::new);
+		EntityRendererRegistry.register(ModEntities.OBSIDIAN_ARROW, ObsidianArrowRendererer::new);
 		EntityRendererRegistry.register(ModEntities.OBSIDIAN_GOLEM, ObsidianGolemRenderer::new);
 	}
 

@@ -1,0 +1,9 @@
+{
+  "layers": {
+    "horse_body": [{ "texture": "beyond-netherite:obsidian_humanoid" }],
+    "humanoid": [{ "texture": "beyond-netherite:obsidian_humanoid" }],
+    "humanoid_baby": [{ "texture": "beyond-netherite:obsidian_humanoid" }],
+    "humanoid_leggings": [{ "texture": "beyond-netherite:obsidian_leggings" }],
+    "nautilus_body": [{ "texture": "beyond-netherite:obsidian_humanoid" }]
+  }
+}

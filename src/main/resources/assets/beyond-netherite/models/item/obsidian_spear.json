@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "beyond-netherite:item/obsidian_spear"
+  }
+}
