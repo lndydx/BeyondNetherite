@@ -16,6 +16,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.equipment.ArmorType;
 import net.minecraft.util.Unit;
+import net.minecraft.world.item.equipment.ArmorMaterial;
 
 import com.lndydx.beyondnetherite.BeyondNetherite;
 
@@ -94,11 +95,11 @@ public class ModItems {
                 .enchantable(15);
     }
 
-    private static Item.Properties wingedProperties(ResourceKey<Item> key, int durability) {
+    private static Item.Properties wingedProperties(ResourceKey<Item> key, ArmorMaterial material, int durability) {
         return new Item.Properties()
                 .setId(key)
                 .stacksTo(1)
-                .humanoidArmor(ModArmorMaterials.OBSIDIAN, ArmorType.CHESTPLATE)
+                .humanoidArmor(material, ArmorType.CHESTPLATE)
                 .component(DataComponents.GLIDER, Unit.INSTANCE)
                 .durability(durability)
                 .fireResistant()
@@ -122,8 +123,8 @@ public class ModItems {
         OBSIDIAN_LEGGINGS = register(ModItemIds.OBSIDIAN_LEGGINGS, new Item(armorProperties(ModItemIds.OBSIDIAN_LEGGINGS, 694, ArmorType.LEGGINGS)));
         OBSIDIAN_BOOTS = register(ModItemIds.OBSIDIAN_BOOTS, new Item(armorProperties(ModItemIds.OBSIDIAN_BOOTS, 601, ArmorType.BOOTS)));
         OBSIDIAN_ARROW = register(ModItemIds.OBSIDIAN_ARROW, new ObsidianArrowItem(new Item.Properties().setId(ModItemIds.OBSIDIAN_ARROW).fireResistant()));
-        WINGED_NETHERITE_CHESTPLATE = register(ModItemIds.WINGED_NETHERITE_CHESTPLATE, new Item(wingedProperties(ModItemIds.WINGED_NETHERITE_CHESTPLATE, 544)));
-        WINGED_OBSIDIAN_CHESTPLATE = register(ModItemIds.WINGED_OBSIDIAN_CHESTPLATE, new Item(wingedProperties(ModItemIds.WINGED_OBSIDIAN_CHESTPLATE, 648)));
+        WINGED_NETHERITE_CHESTPLATE = register(ModItemIds.WINGED_NETHERITE_CHESTPLATE, new Item(wingedProperties(ModItemIds.WINGED_NETHERITE_CHESTPLATE, ModArmorMaterials.WINGED_NETHERITE, 544)));
+        WINGED_OBSIDIAN_CHESTPLATE = register(ModItemIds.WINGED_OBSIDIAN_CHESTPLATE, new Item(wingedProperties(ModItemIds.WINGED_OBSIDIAN_CHESTPLATE, ModArmorMaterials.WINGED_OBSIDIAN, 648)));
         OBSIDIAN_GOLEM_SPAWN_EGG = register(ModItemIds.OBSIDIAN_GOLEM_SPAWN_EGG, new ObsidianGolemSpawnEggItem(new Item.Properties().setId(ModItemIds.OBSIDIAN_GOLEM_SPAWN_EGG)));
 
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.INGREDIENTS)

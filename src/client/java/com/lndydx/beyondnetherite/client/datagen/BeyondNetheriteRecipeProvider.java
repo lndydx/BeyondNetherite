@@ -58,6 +58,16 @@ public class BeyondNetheriteRecipeProvider extends FabricRecipeProvider {
                         .unlockedBy(getHasName(Blocks.OBSIDIAN), has(Blocks.OBSIDIAN))
                         .save(exporter);
 
+                shaped(RecipeCategory.MISC, ModItems.OBSIDIAN_SMITHING_TEMPLATE, 2)
+                        .pattern("STS")
+                        .pattern("SOS")
+                        .pattern("SSS")
+                        .define('S', Items.NETHERITE_SCRAP)
+                        .define('T', ModItems.OBSIDIAN_SMITHING_TEMPLATE)
+                        .define('O', Items.OBSIDIAN)
+                        .unlockedBy(getHasName(ModItems.OBSIDIAN_SMITHING_TEMPLATE), has(ModItems.OBSIDIAN_SMITHING_TEMPLATE))
+                        .save(exporter, "obsidian_smithing_template_duplication");
+
                 obsidianSmithing(this, Items.NETHERITE_SWORD, RecipeCategory.COMBAT, ModItems.OBSIDIAN_SWORD);
                 obsidianSmithing(this, Items.NETHERITE_AXE, RecipeCategory.TOOLS, ModItems.OBSIDIAN_AXE);
                 obsidianSmithing(this, Items.NETHERITE_PICKAXE, RecipeCategory.TOOLS, ModItems.OBSIDIAN_PICKAXE);

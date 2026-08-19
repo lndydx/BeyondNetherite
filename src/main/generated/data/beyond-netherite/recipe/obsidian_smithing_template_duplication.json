@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "O": "minecraft:obsidian",
+    "S": "minecraft:netherite_scrap",
+    "T": "beyond-netherite:obsidian_smithing_template"
+  },
+  "pattern": [
+    "STS",
+    "SOS",
+    "SSS"
+  ],
+  "result": {
+    "count": 2,
+    "id": "beyond-netherite:obsidian_smithing_template"
+  }
+}
