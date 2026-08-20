@@ -35,7 +35,8 @@ public class ModBlocks {
                 denseKey,
                 new DenseObsidianBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OBSIDIAN)
                         .setId(denseKey)
-                        .strength(50.0F, 2400.0F))
+                        .strength(50.0F, 2400.0F)
+                        .lightLevel(state -> 10))
         );
 
         DENSE_OBSIDIAN_ITEM = Registry.register(
