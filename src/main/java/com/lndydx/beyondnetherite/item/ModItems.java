@@ -116,7 +116,7 @@ public class ModItems {
         OBSIDIAN_PICKAXE = register(ModItemIds.OBSIDIAN_PICKAXE, new Item(toolProperties(1.0F, -2.8F, BlockTags.MINEABLE_WITH_PICKAXE, true, ModItemIds.OBSIDIAN_PICKAXE)));
         OBSIDIAN_SHOVEL = register(ModItemIds.OBSIDIAN_SHOVEL, new Item(toolProperties(1.0F, -3.0F, BlockTags.MINEABLE_WITH_SHOVEL, true, ModItemIds.OBSIDIAN_SHOVEL)));
         OBSIDIAN_HOE = register(ModItemIds.OBSIDIAN_HOE, new HoeItem(ObsidianToolMaterial.INSTANCE, -5.0F, 0.0F, hoeProperties(ModItemIds.OBSIDIAN_HOE)));
-        OBSIDIAN_SPEAR = register(ModItemIds.OBSIDIAN_SPEAR, new Item(new Item.Properties().setId(ModItemIds.OBSIDIAN_SPEAR).stacksTo(1).spear(ObsidianToolMaterial.INSTANCE, 1.25F, 1.35F, 0.75F, 3.25F, 14.0F, 3.0F, 5.1F, 10.0F, 4.6F).fireResistant()));
+        OBSIDIAN_SPEAR = register(ModItemIds.OBSIDIAN_SPEAR, new Item(new Item.Properties().setId(ModItemIds.OBSIDIAN_SPEAR).stacksTo(1).spear(ObsidianToolMaterial.INSTANCE, 1.25F, 1.38F, 0.60F, 3.25F, 14.0F, 3.0F, 5.1F, 10.0F, 4.6F).fireResistant()));
 
         OBSIDIAN_HELMET = register(ModItemIds.OBSIDIAN_HELMET, new Item(armorProperties(ModItemIds.OBSIDIAN_HELMET, 509, ArmorType.HELMET)));
         OBSIDIAN_CHESTPLATE = register(ModItemIds.OBSIDIAN_CHESTPLATE, new Item(armorProperties(ModItemIds.OBSIDIAN_CHESTPLATE, 740, ArmorType.CHESTPLATE)));

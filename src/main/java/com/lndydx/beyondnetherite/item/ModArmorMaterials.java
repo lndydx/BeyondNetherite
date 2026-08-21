@@ -35,13 +35,13 @@ public class ModArmorMaterials {
     public static final ArmorMaterial OBSIDIAN = new ArmorMaterial(
             46,
             Map.of(ArmorType.HELMET, 3, ArmorType.CHESTPLATE, 8, ArmorType.LEGGINGS, 6, ArmorType.BOOTS, 3),
-            15, SoundEvents.ARMOR_EQUIP_NETHERITE, 4.0F, 0.15F,
+            15, SoundEvents.ARMOR_EQUIP_NETHERITE, 4.5F, 0.15F,
             OBSIDIAN_ALLOY_TAG, OBSIDIAN_ASSET);
 
     public static final ArmorMaterial WINGED_OBSIDIAN = new ArmorMaterial(
             46,
             Map.of(ArmorType.HELMET, 3, ArmorType.CHESTPLATE, 8, ArmorType.LEGGINGS, 6, ArmorType.BOOTS, 3),
-            15, SoundEvents.ARMOR_EQUIP_NETHERITE, 4.0F, 0.15F,
+            15, SoundEvents.ARMOR_EQUIP_NETHERITE, 4.5F, 0.15F,
             OBSIDIAN_ALLOY_TAG, WINGED_OBSIDIAN_ASSET);
 
     public static final ArmorMaterial WINGED_NETHERITE = new ArmorMaterial(
