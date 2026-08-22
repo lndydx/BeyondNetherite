@@ -20,6 +20,10 @@ public class ModEntities {
             Registries.ENTITY_TYPE,
             Identifier.fromNamespaceAndPath(BeyondNetherite.MOD_ID, "obsidian_golem"));
 
+    private static final ResourceKey<EntityType<?>> SHADE_KEY = ResourceKey.create(
+            Registries.ENTITY_TYPE,
+            Identifier.fromNamespaceAndPath(BeyondNetherite.MOD_ID, "shade"));
+
     public static final EntityType<ObsidianArrow> OBSIDIAN_ARROW = Registry.register(
             BuiltInRegistries.ENTITY_TYPE,
             OBSIDIAN_ARROW_KEY,
@@ -39,7 +43,17 @@ public class ModEntities {
                     .fireImmune()
                     .build(OBSIDIAN_GOLEM_KEY));
 
+    public static final EntityType<Shade> SHADE = Registry.register(
+            BuiltInRegistries.ENTITY_TYPE,
+            SHADE_KEY,
+            EntityType.Builder.<Shade>of(Shade::new, MobCategory.MONSTER)
+                    .sized(0.6F, 1.95F)
+                    .clientTrackingRange(10)
+                    .fireImmune()
+                    .build(SHADE_KEY));
+
     public static void initialize() {
         FabricDefaultAttributeRegistry.register(OBSIDIAN_GOLEM, ObsidianGolem.createAttributes());
+        FabricDefaultAttributeRegistry.register(SHADE, Shade.createAttributes());
     }
 }

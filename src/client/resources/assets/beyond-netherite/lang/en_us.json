@@ -19,5 +19,6 @@
   "block.beyond-netherite.dense_obsidian": "Dense Obsidian",
   "item.beyond-netherite.dense_obsidian": "Dense Obsidian",
   "entity.beyond-netherite.obsidian_golem": "Obsidian Golem",
-  "entity.beyond-netherite.obsidian_arrow": "Obsidian Arrow"
+  "entity.beyond-netherite.obsidian_arrow": "Obsidian Arrow",
+  "entity.beyond-netherite.shade": "Shade"
 }
