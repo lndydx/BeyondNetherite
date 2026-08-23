@@ -29,6 +29,6 @@ public class ShadeSpawnEggItem extends Item {
             }
             return InteractionResult.SUCCESS;
         }
-        return InteractionResult.PASS;
+        return InteractionResult.SUCCESS;
     }
 }
