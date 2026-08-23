@@ -5,7 +5,8 @@
 	"mixins": [
 		"ExampleMixin",
 		"LivingEntityMixin",
-		"CarvedPumpkinBlockMixin"
+		"CarvedPumpkinBlockMixin",
+		"WitherSkullBlockMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

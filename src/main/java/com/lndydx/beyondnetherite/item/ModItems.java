@@ -38,6 +38,7 @@ public class ModItems {
     public static Item WINGED_NETHERITE_CHESTPLATE;
     public static Item WINGED_OBSIDIAN_CHESTPLATE;
     public static Item OBSIDIAN_GOLEM_SPAWN_EGG;
+    public static Item SHADE_SPAWN_EGG;
 
     private static final Identifier BASE_ATTACK_DAMAGE_ID = Identifier.withDefaultNamespace("base_attack_damage");
     private static final Identifier BASE_ATTACK_SPEED_ID = Identifier.withDefaultNamespace("base_attack_speed");
@@ -126,6 +127,7 @@ public class ModItems {
         WINGED_NETHERITE_CHESTPLATE = register(ModItemIds.WINGED_NETHERITE_CHESTPLATE, new Item(wingedProperties(ModItemIds.WINGED_NETHERITE_CHESTPLATE, ModArmorMaterials.WINGED_NETHERITE, 544)));
         WINGED_OBSIDIAN_CHESTPLATE = register(ModItemIds.WINGED_OBSIDIAN_CHESTPLATE, new Item(wingedProperties(ModItemIds.WINGED_OBSIDIAN_CHESTPLATE, ModArmorMaterials.WINGED_OBSIDIAN, 648)));
         OBSIDIAN_GOLEM_SPAWN_EGG = register(ModItemIds.OBSIDIAN_GOLEM_SPAWN_EGG, new ObsidianGolemSpawnEggItem(new Item.Properties().setId(ModItemIds.OBSIDIAN_GOLEM_SPAWN_EGG)));
+        SHADE_SPAWN_EGG = register(ModItemIds.SHADE_SPAWN_EGG, new ShadeSpawnEggItem(new Item.Properties().setId(ModItemIds.SHADE_SPAWN_EGG)));
 
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.INGREDIENTS)
                 .register((entries) -> {
@@ -158,6 +160,7 @@ public class ModItems {
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.SPAWN_EGGS)
                 .register((entries) -> {
                     entries.accept(OBSIDIAN_GOLEM_SPAWN_EGG);
+                    entries.accept(SHADE_SPAWN_EGG);
                 });
     }
 }

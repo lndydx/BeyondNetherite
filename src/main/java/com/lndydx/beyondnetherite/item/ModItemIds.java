@@ -25,6 +25,7 @@ public class ModItemIds {
     public static final ResourceKey<Item> WINGED_NETHERITE_CHESTPLATE = key("winged_netherite_chestplate");
     public static final ResourceKey<Item> WINGED_OBSIDIAN_CHESTPLATE = key("winged_obsidian_chestplate");
     public static final ResourceKey<Item> OBSIDIAN_GOLEM_SPAWN_EGG = key("obsidian_golem_spawn_egg");
+    public static final ResourceKey<Item> SHADE_SPAWN_EGG = key("shade_spawn_egg");
 
     private static ResourceKey<Item> key(String path) {
         return ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(BeyondNetherite.MOD_ID, path));

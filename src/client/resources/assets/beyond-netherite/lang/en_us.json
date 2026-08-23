@@ -20,5 +20,6 @@
   "item.beyond-netherite.dense_obsidian": "Dense Obsidian",
   "entity.beyond-netherite.obsidian_golem": "Obsidian Golem",
   "entity.beyond-netherite.obsidian_arrow": "Obsidian Arrow",
-  "entity.beyond-netherite.shade": "Shade"
+  "entity.beyond-netherite.shade": "Shade",
+  "item.beyond-netherite.shade_spawn_egg": "Shade Spawn Egg"
 }
