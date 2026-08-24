@@ -23,6 +23,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
+import net.minecraft.world.entity.ai.goal.RandomStrollGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
@@ -32,6 +33,7 @@ import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.item.enchantment.ItemEnchantments;
 import net.minecraft.world.level.Level;
 
+import com.lndydx.beyondnetherite.arena.ShadeArenaManager;
 import com.lndydx.beyondnetherite.item.ModItems;
 
 public class Shade extends Monster {
@@ -72,6 +74,7 @@ public class Shade extends Monster {
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(2, new ShadeCombatGoal(this));
+        this.goalSelector.addGoal(6, new RandomStrollGoal(this, 0.9D));
         this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
@@ -154,7 +157,7 @@ public class Shade extends Monster {
         damage += sharp > 0 ? 0.5F + 0.5F * sharp : 0F;
 
         boolean crit = !this.onGround() && this.getDeltaMovement().y < 0.0D;
-        if (crit) damage *= 1.5F;
+        if (crit) damage *= 1.3F;
 
         boolean success = target.hurtServer(level, this.damageSources().mobAttack(this), damage);
         if (success && fire > 0) {
@@ -199,8 +202,10 @@ public class Shade extends Monster {
     public void die(DamageSource cause) {
         super.die(cause);
         if (!this.level().isClientSide()) {
+            com.lndydx.beyondnetherite.BeyondNetherite.LOGGER.info("[BN] Shade.die() fired");
             this.level().playSound(null, this.blockPosition(),
                     this.getDeathSound(), SoundSource.HOSTILE, 4.0F, 1.0F);
+            ShadeArenaManager.destroyArena((ServerLevel) this.level());
         }
     }
 

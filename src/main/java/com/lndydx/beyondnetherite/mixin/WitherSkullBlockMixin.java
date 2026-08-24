@@ -15,6 +15,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.WitherSkullBlock;
 import net.minecraft.world.phys.AABB;
 
+import com.lndydx.beyondnetherite.arena.ShadeArenaManager;
 import com.lndydx.beyondnetherite.block.ModBlocks;
 import com.lndydx.beyondnetherite.entity.ModEntities;
 import com.lndydx.beyondnetherite.entity.Shade;
@@ -50,6 +51,9 @@ public abstract class WitherSkullBlockMixin {
         Shade shade = new Shade(ModEntities.SHADE, serverLevel);
         shade.setPos(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
         serverLevel.addFreshEntity(shade);
+
+        // Create arena (16x16)
+        ShadeArenaManager.createArena(pos.below(), serverLevel, shade);
     }
 
     private static boolean isDense(Level level, BlockPos pos) {
