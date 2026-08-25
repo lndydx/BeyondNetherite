@@ -1,0 +1,31 @@
+{
+  "display": {
+    "icon": {
+      "id": "beyond-netherite:obsidian_sword"
+    },
+    "title": "Did You Kill Yourself?",
+    "description": "Slay the Shade",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "minecraft:adventure/kill_a_mob",
+  "criteria": {
+    "killed_shade": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "minecraft:entity_type": "beyond-netherite:shade"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [["killed_shade"]]
+}

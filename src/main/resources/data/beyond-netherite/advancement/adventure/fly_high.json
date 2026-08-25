@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "id": "beyond-netherite:winged_obsidian_chestplate"
+    },
+    "title": "Fly High",
+    "description": "Wear a winged chestplate and take to the skies",
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "minecraft:adventure/root",
+  "criteria": {
+    "winged": {
+      "trigger": "minecraft:tick",
+      "conditions": {
+        "player": {
+          "equipment": {
+            "chest": {
+              "items": [
+                "beyond-netherite:winged_obsidian_chestplate",
+                "beyond-netherite:winged_netherite_chestplate"
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "requirements": [["winged"]]
+}

@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "id": "beyond-netherite:obsidian_chestplate"
+    },
+    "title": "Mohs Master",
+    "description": "Have the full obsidian armor set in your inventory",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "minecraft:nether/root",
+  "criteria": {
+    "full_set": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["beyond-netherite:obsidian_helmet"] },
+          { "items": ["beyond-netherite:obsidian_chestplate"] },
+          { "items": ["beyond-netherite:obsidian_leggings"] },
+          { "items": ["beyond-netherite:obsidian_boots"] }
+        ]
+      }
+    }
+  },
+  "requirements": [["full_set"]]
+}

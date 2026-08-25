@@ -24,7 +24,7 @@ public class ShadeArena {
         this.centerZ = center.getZ() + 0.5;
         this.level = level;
         this.shade = shade;
-        this.radius = 12.0D;
+        this.radius = 13.0D;
         this.oldCenterX = oldCenterX;
         this.oldCenterZ = oldCenterZ;
         this.oldSize = oldSize;
