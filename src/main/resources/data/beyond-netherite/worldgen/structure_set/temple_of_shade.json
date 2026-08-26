@@ -1,0 +1,9 @@
+{
+  "structures": [ { "structure": "beyond-netherite:temple_of_shade", "weight": 1 } ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 32,
+    "separation": 20,
+    "salt": 867530911
+  }
+}

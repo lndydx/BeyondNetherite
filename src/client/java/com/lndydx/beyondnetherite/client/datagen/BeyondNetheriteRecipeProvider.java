@@ -58,6 +58,11 @@ public class BeyondNetheriteRecipeProvider extends FabricRecipeProvider {
                         .unlockedBy(getHasName(Blocks.OBSIDIAN), has(Blocks.OBSIDIAN))
                         .save(exporter);
 
+                shapeless(RecipeCategory.BUILDING_BLOCKS, Items.OBSIDIAN, 9)
+                        .requires(ModBlocks.DENSE_OBSIDIAN_ITEM)
+                        .unlockedBy(getHasName(ModBlocks.DENSE_OBSIDIAN_ITEM), has(ModBlocks.DENSE_OBSIDIAN_ITEM))
+                        .save(exporter);
+
                 shaped(RecipeCategory.MISC, ModItems.OBSIDIAN_SMITHING_TEMPLATE, 2)
                         .pattern("STS")
                         .pattern("SOS")

@@ -74,16 +74,16 @@ public class Shade extends Monster {
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(2, new ShadeCombatGoal(this));
-        this.goalSelector.addGoal(6, new RandomStrollGoal(this, 0.9D));
+        this.goalSelector.addGoal(6, new RandomStrollGoal(this, 1.0D));
         this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
 
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createMonsterAttributes()
-                .add(Attributes.MAX_HEALTH, 100.0D)
-                .add(Attributes.ATTACK_DAMAGE, 10.0D)
-                .add(Attributes.ARMOR_TOUGHNESS, 2.0D)
+                .add(Attributes.MAX_HEALTH, 150.0D)
+                .add(Attributes.ATTACK_DAMAGE, 12.0D)
+                .add(Attributes.ARMOR_TOUGHNESS, 3.0D)
                 .add(Attributes.MOVEMENT_SPEED, 0.25D)
                 .add(Attributes.FOLLOW_RANGE, 50.0D);
     }
@@ -106,9 +106,9 @@ public class Shade extends Monster {
         LivingEntity target = this.getTarget();
         if (target != null) {
             double dist = this.distanceTo(target);
-            if (dist <= 10.0D && !this.isSprinting()) {
+            if (dist <= 12.0D && !this.isSprinting()) {
                 this.setSprinting(true);
-            } else if (dist > 10.0D && this.isSprinting()) {
+            } else if (dist > 12.0D && this.isSprinting()) {
                 this.setSprinting(false);
             }
         } else if (this.isSprinting()) {
@@ -157,7 +157,7 @@ public class Shade extends Monster {
         damage += sharp > 0 ? 0.5F + 0.5F * sharp : 0F;
 
         boolean crit = !this.onGround() && this.getDeltaMovement().y < 0.0D;
-        if (crit) damage *= 1.3F;
+        if (crit) damage *= 1.5F;
 
         boolean success = target.hurtServer(level, this.damageSources().mobAttack(this), damage);
         if (success && fire > 0) {

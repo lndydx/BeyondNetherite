@@ -1,0 +1,6 @@
+{
+  "type": "beyond-netherite:shade_ruins",
+  "biomes": "#beyond-netherite:temple_of_shade",
+  "step": "surface_structures",
+  "spawn_overrides": {}
+}

@@ -94,13 +94,13 @@ public class ShadeCombatGoal extends Goal {
         }
 
         // Lunge
-        if (dist >= 4.0D && dist <= 8.0D && this.shade.getLungeCooldown() <= 0) {
+        if (dist >= 5.0D && dist <= 10.0D && this.shade.getLungeCooldown() <= 0) {
             double dx = this.target.getX() - this.shade.getX();
             double dz = this.target.getZ() - this.shade.getZ();
             double h = Math.sqrt(dx * dx + dz * dz);
             if (h > 0) {
                 this.shade.setDeltaMovement(this.shade.getDeltaMovement()
-                        .add((dx / h) * 1.2D, 0.6D, (dz / h) * 1.2D));
+                        .add((dx / h) * 1.4D, 0.8D, (dz / h) * 1.4D));
                 this.shade.setLungeCooldown(40 + this.shade.getRandom().nextInt(20));
             }
         }

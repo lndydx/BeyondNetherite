@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "beyond-netherite:dense_obsidian"
+  ],
+  "result": {
+    "count": 9,
+    "id": "minecraft:obsidian"
+  }
+}
