@@ -84,7 +84,7 @@ public class Shade extends Monster {
                 .add(Attributes.MAX_HEALTH, 150.0D)
                 .add(Attributes.ATTACK_DAMAGE, 12.0D)
                 .add(Attributes.ARMOR_TOUGHNESS, 3.0D)
-                .add(Attributes.MOVEMENT_SPEED, 0.25D)
+                .add(Attributes.MOVEMENT_SPEED, 0.27D)
                 .add(Attributes.FOLLOW_RANGE, 50.0D);
     }
 
@@ -95,9 +95,9 @@ public class Shade extends Monster {
 
         if (this.regenCooldown > 0) this.regenCooldown--;
         if (!this.level().isClientSide() && this.regenCooldown <= 0 && !this.hasEffect(MobEffects.REGENERATION)) {
-            if (this.getHealth() > 0 && this.getHealth() < this.getMaxHealth() * 0.3F) {
-                this.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 10 * 20, 2));
-                this.regenCooldown = 8 * 20;
+            if (this.getHealth() > 0 && this.getHealth() < this.getMaxHealth() * 0.35F) {
+                this.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 10 * 20, 3));
+                this.regenCooldown = 7 * 20;
                 this.level().playSound(null, this.blockPosition(),
                         SoundEvents.TRIAL_SPAWNER_DETECT_PLAYER, this.getSoundSource(), 5.5F, 1.0F);
             }
@@ -157,7 +157,7 @@ public class Shade extends Monster {
         damage += sharp > 0 ? 0.5F + 0.5F * sharp : 0F;
 
         boolean crit = !this.onGround() && this.getDeltaMovement().y < 0.0D;
-        if (crit) damage *= 1.5F;
+        if (crit) damage *= 1.55F;
 
         boolean success = target.hurtServer(level, this.damageSources().mobAttack(this), damage);
         if (success && fire > 0) {
