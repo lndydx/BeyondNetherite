@@ -9,26 +9,26 @@ Ever felt like the game ends too soon after getting Netherite? This mod pushes t
 ## Features
 
 ### Materials & Items
-- **Obsidian Shard** — basic crafting component, obtained by crafting Obsidian.
-- **Obsidian Alloy** — core material of the Obsidian tier, made from Obsidian + Netherite Scrap. Can also drop from Shade (5% chance).
-- **Dense Obsidian** — a block used for crafting, decoration, and summoning rituals. Can be broken back down into 9 Obsidian.
-- **Obsidian Arrow** — arrow with higher damage and a piercing effect.
+- **Obsidian Shard:** basic crafting component, obtained by crafting Obsidian.
+- **Obsidian Alloy:** core material of the Obsidian tier, made from Obsidian + Netherite Scrap. Can also drop from Shade (5% chance).
+- **Dense Obsidian:** a block used for crafting, decoration, and summoning rituals. Can be broken back down into 9 Obsidian.
+- **Obsidian Arrow:** arrow with higher damage and a piercing effect.
 
 ### Equipment & Armor
-- **Full Obsidian Tools set** — sword, axe, pickaxe, shovel, hoe, and spear.
-- **Full Obsidian Armor set** — helmet, chestplate, leggings, boots.
-- **Winged Chestplate** — a special variant of the Netherite and Obsidian chestplate with built-in elytra flight.
+- **Full Obsidian Tools set:** sword, axe, pickaxe, shovel, hoe, and spear.
+- **Full Obsidian Armor set:** helmet, chestplate, leggings, boots.
+- **Winged Chestplate:** a special variant of the Netherite and Obsidian chestplate with built-in elytra flight.
 - All armor/tools are upgraded from the Netherite tier using an **Obsidian Smithing Template** + **Obsidian Alloy** at a Smithing Table.
 
 ### Structures & Entities
-- **Temple of Shade** — a new structure serving as an arena to battle The Shade.
-- **The Shade** — a mini-boss that guards the temple.
-- **Obsidian Golem** — an upgraded version of the Iron Golem.
+- **Temple of Shade:** a new structure serving as an arena to battle The Shade.
+- **The Shade:** a mini-boss that guards the temple.
+- **Obsidian Golem:** an upgraded version of the Iron Golem.
 
 ### How to Get the Obsidian Smithing Template
 The template can be obtained from 2 sources:
-- **Nether Fortress** chest — 15% chance
-- **Bastion Remnant** chest — 20% chance
+- **Nether Fortress** chest 15% chance
+- **Bastion Remnant** chest 20% chance
 
 Once you have one, it can be duplicated using the recipe below.
 
@@ -116,10 +116,10 @@ Stack vertically: 2 Dense Obsidian + 1 Wither Skeleton Skull (on top).
 | Drop | Obsidian Alloy (5% chance) |
 
 ### Combat Behaviour
-- **Lunge Attack** — leaps from 4–8 blocks away, 1.55x damage on critical hits (while airborne).
-- **Flanking** — detects when the player is blocking with a shield and flanks to the side.
-- **Strafing** — moves in a zigzag while chasing (random 5% chance, lasts 1–2 seconds).
-- **Regeneration** — auto-regenerates when HP < 35% (Regeneration IV, 10 seconds, 7 second cooldown).
+- **Lunge Attack:** leaps from 4–8 blocks away, 1.55x damage on critical hits (while airborne).
+- **Flanking:** detects when the player is blocking with a shield and flanks to the side.
+- **Strafing:** moves in a zigzag while chasing (random 5% chance, lasts 1–2 seconds).
+- **Regeneration:** auto-regenerates when HP < 35% (Regeneration IV, 10 seconds, 7 second cooldown).
 
 ---
 
